@@ -4,7 +4,9 @@ pipeline {
     stages {
      	stage('build'){
      	steps{
+     		echo 'running maven command'
      		sh 'mvn clean package'
+     			echo 'completed command'
      	}    	     
      	 post{
      	     	success{
@@ -16,11 +18,7 @@ pipeline {
      	     
      	
     	}
-    	stage('Deploy to staging'){
-    		steps{
-    			build job:'deploy-to-staging'
-    		}
-    	}
+
    
 	}
 }
